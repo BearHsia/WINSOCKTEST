@@ -19,7 +19,7 @@ int main(int argc, char *argv[]) {
 	struct addrinfo *result = NULL,
 		*ptr = NULL,
 		hints;
-	const char *sendbuf = "this is a test";
+	const char *sendbuf = "this is a test.";
 	char recvbuf[DEFAULT_BUFLEN];
 	int iResult;
 	int recvbuflen = DEFAULT_BUFLEN;
@@ -82,7 +82,8 @@ int main(int argc, char *argv[]) {
 		WSACleanup();
 		return 1;
 	}
-
+	printf("Pause before send\n");
+	system("pause");
 	// Send an initial buffer
 	iResult = send(ConnectSocket, sendbuf, (int)strlen(sendbuf), 0);
 	if (iResult == SOCKET_ERROR) {
@@ -96,7 +97,7 @@ int main(int argc, char *argv[]) {
 
 	// shutdown the connection for sending since no more data will be sent
 	// the client can still use the ConnectSocket for receiving data
-	iResult = shutdown(ConnectSocket, SD_SEND);
+	iResult = shutdown(ConnectSocket, SD_SEND); //this will trigger the server to close
 	if (iResult == SOCKET_ERROR) {
 		printf("shutdown failed: %d\n", WSAGetLastError());
 		closesocket(ConnectSocket);
@@ -107,6 +108,7 @@ int main(int argc, char *argv[]) {
 
 	// Receive data until the server closes the connection
 	do {
+		printf("Wait for incoming data.\n");
 		iResult = recv(ConnectSocket, recvbuf, recvbuflen, 0);
 		if (iResult > 0)
 			printf("Bytes received: %d\n", iResult);
