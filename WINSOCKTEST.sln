@@ -13,6 +13,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ContinuousClient", "Continu
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SelectServer", "SelectServer\SelectServer.vcxproj", "{31B38762-3BBA-4989-8792-9958482B654B}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "NonBlockListenServer", "NonBlockListenServer\NonBlockListenServer.vcxproj", "{9C9C8973-5191-40CE-A6E5-6A81127DE4DC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -61,6 +63,14 @@ Global
 		{31B38762-3BBA-4989-8792-9958482B654B}.Release|x64.Build.0 = Release|x64
 		{31B38762-3BBA-4989-8792-9958482B654B}.Release|x86.ActiveCfg = Release|Win32
 		{31B38762-3BBA-4989-8792-9958482B654B}.Release|x86.Build.0 = Release|Win32
+		{9C9C8973-5191-40CE-A6E5-6A81127DE4DC}.Debug|x64.ActiveCfg = Debug|x64
+		{9C9C8973-5191-40CE-A6E5-6A81127DE4DC}.Debug|x64.Build.0 = Debug|x64
+		{9C9C8973-5191-40CE-A6E5-6A81127DE4DC}.Debug|x86.ActiveCfg = Debug|Win32
+		{9C9C8973-5191-40CE-A6E5-6A81127DE4DC}.Debug|x86.Build.0 = Debug|Win32
+		{9C9C8973-5191-40CE-A6E5-6A81127DE4DC}.Release|x64.ActiveCfg = Release|x64
+		{9C9C8973-5191-40CE-A6E5-6A81127DE4DC}.Release|x64.Build.0 = Release|x64
+		{9C9C8973-5191-40CE-A6E5-6A81127DE4DC}.Release|x86.ActiveCfg = Release|Win32
+		{9C9C8973-5191-40CE-A6E5-6A81127DE4DC}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
