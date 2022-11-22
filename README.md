@@ -62,5 +62,20 @@ In each loop of the server, the server non-blockingly checks the socket is reada
 2. Don't know how to get errors of a set of client who are selected to be checked for errors.
 3. `select()` can also be used in blocking, blocking with timeout, and non-blocking modes, by setting the timeout argument. See [this](https://learn.microsoft.com/en-us/windows/win32/api/winsock2/nf-winsock2-select).
 
+## Nonblocking Server 2
+Implement a non-blocking sever by `ioctlsocket()`. By making the listing socket non-blocking, the servers can non-blockingly wait for a client. The `recv()` is also made non-blocking.
+
+1. Run NonBlockListenServer.exe
+2. Run client by command line and give the server IP
+```sh
+$ ContinuousClient 127.0.0.1
+```
+3. Enter (y/n/b) in the client console.
+4. If enter b, two programs will automatically close gracefully.
+
+Before a client is started up, the server waits for it by a while loop. In the each loop, the server will try to accept a client. If it fails, the server ignores the error (10053, WSAEWOULDBLOCK) and tries to accept next time. Otherwise, the while loop is borken.
+
+After a connection is established, the server non-blockingly receive data from the buffer. If it fails, the server will ignore the error (10053, WSAEWOULDBLOCK). If it successes, the server echoes the data back to the client.
+
 ## Other References
 [Simple Explanation for networking and some mechanisms of sockets](https://www.madwizard.org/programming/tutorials/netcpp/1)
