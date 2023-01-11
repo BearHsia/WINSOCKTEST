@@ -107,8 +107,9 @@ int main()
 
 	while (true) {
 		int recvResult;
-		recvResult = recv(ClientSocket, recvbuf, recvbuflen, 0);
+		recvResult = recv(ClientSocket, recvbuf, recvbuflen, MSG_PEEK);
 		if (recvResult > 0) {
+			recvResult = recv(ClientSocket, recvbuf, recvbuflen, 0);
 			printf("Bytes received: %d\n", recvResult);
 			recvbuf[recvResult] = '\0';
 			printf("Recv: %s\n", recvbuf);
